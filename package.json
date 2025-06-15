@@ -1,11 +1,15 @@
 {
   "name": "incident-api",
   "version": "1.0.0",
-  "description": "Backend proxy for incident report",
+  "description": "API for incident reporting system",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "postinstall": "echo 'postinstall complete'"
   },
+  "keywords": [],
+  "author": "Hoang Nam",
+  "license": "ISC",
   "dependencies": {
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
