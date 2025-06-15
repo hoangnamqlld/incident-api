@@ -8,12 +8,14 @@ const { getFirestore, FieldValue } = require("firebase-admin/firestore");
 
 // Khởi tạo Firebase Admin (sẽ dùng serviceAccountKey.json)
 // Lưu file serviceAccountKey.json ở cùng folder sau khi bạn tải từ Firebase Console
+const serviceAccount = {
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+  privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+};
+
 initializeApp({
-  credential: {
-    projectId: process.env.FIREBASE_PROJECT_ID,
-    clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-    privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
-  },
+  credential: cert(serviceAccount),
   storageBucket: process.env.FIREBASE_BUCKET,
 });
 
